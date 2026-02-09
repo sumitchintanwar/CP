@@ -12,42 +12,76 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, m;
-        cin >> n >> m;
+        ll n;
+        cin >> n;
 
-        vector<int> v(m);
-        for (int i = 0; i < m; i++)
+        // ARRAY INPUT
+        vector<ll> a(n);
+        for (int i = 0; i < n; i++)
         {
-            cin >> v[i];
+            cin >> a[i];
         }
-        sort(v.begin(), v.end());
-        vector<ll> gaps;
-        for (int i = 0; i < m - 1; i++)
+
+        string s;
+        cin >> s;
+
+        // TWO ARRAYS
+        vector<ll> b(n);
+        for (int i = 0; i < n; i++)
         {
-            gaps.push_back(v[i + 1] - v[i] - 1);
+            cin >> b[i];
         }
-        gaps.push_back(n + v[m - 1] - 1 + v[0]);
-        sort(gaps.rbegin(), gaps.rend());
 
-        ll saved = 0;
-        ll d = 0;
-
-        for (int i = 0; i < gaps.size(); i++)
+        // MATRIX INPUT(n + 1, 0)
+        int r, c;
+        cin >> r >> c;
+        vector<vector<ll>> mat(r, vector<ll>(c));
+        for (int i = 0; i < r; i++)
         {
-            ll curr = gaps[i] - 2 * d;
-
-            if (curr > 0)
+            for (int j = 0; j < c; j++)
             {
-                saved++;
-                curr -= 2;
-                if (curr > 0)
-                {
-                    saved += curr;
-                }
-                d += 2;
+                cin >> mat[i][j];
             }
         }
-        cout << n - saved << "\n";
+
+        // PAIRS INPUT
+        vector<pair<ll, ll>> vp(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> vp[i].first >> vp[i].second;
+        }
+
+        // GRAPH INPUT
+        int m;
+        cin >> m;
+        vector<vector<int>> adj(n + 1);
+        for (int i = 0; i < m; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+        }
+
+        // MAP / FREQUENCY
+        unordered_map<ll, ll> freq;
+        for (ll x : a)
+        {
+            freq[x]++;
+        }
+
+        vector<pair<ll, ll>> points(n);
+        sort(points.begin(), points.end(),
+             [&](pair<ll, ll> a, pair<ll, ll> b)
+             {
+                 if (a.first != b.first)
+                 {
+                     return a.first > b.first;
+                 }
+                 return a.second < b.second;
+             });
+
+        cout << "OK\n";
     }
 
     return 0;
