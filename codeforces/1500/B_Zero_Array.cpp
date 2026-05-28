@@ -7,26 +7,25 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    cout.tie(nullptr);
 
-    ll t;
-    cin >> t;
+    ll t = 1;
+    // cin >> t;
     while (t--)
     {
         ll n;
         cin >> n;
 
-        vector<ll> a(n);
-        string temp;
+        ll sum = 0;
+        ll maxi = 0;
         for (int i = 0; i < n; i++)
         {
-            cin >> a[i];
-            temp += to_string(a[i]);
+            ll a;
+            cin >> a;
+            sum += a;
+            maxi = max(a, maxi);
         }
-
-        for (int i = 1; i < n - 1; i++)
-        {
-            // ll currMax = stoi(max({temp[i], temp[i - 1], temp[i + 1]}));
-        }
+        cout << ((sum % 2 || maxi > sum - maxi) ? "NO" : "YES") << "\n";
     }
 
     return 0;
