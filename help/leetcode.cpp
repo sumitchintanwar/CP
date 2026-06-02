@@ -2,9 +2,18 @@
 using namespace std;
 
 using ll = long long;
-
-void solve()
+class Solution
 {
+public:
+    int func()
+    {
+    }
+};
+
+int main()
+{
+    int n;
+    cin >> n;
 
     ll n;
     cin >> n;
@@ -75,20 +84,8 @@ void solve()
              return a.second < b.second;
          });
 
-    cout << "OK\n";
-}
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
-    ll t;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
+        Solution sol;
+    cout << sol.func() << '\n';
 
     return 0;
 }

@@ -17,6 +17,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    cout.tie(nullptr);
 
     ll t;
     cin >> t;
@@ -25,22 +26,6 @@ int main()
         ll n, c;
         cin >> n >> c;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         vector<ll> a(n);
         for (int i = 0; i < n; i++)
         {
